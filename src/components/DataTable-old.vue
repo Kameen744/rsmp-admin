@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { ref, computed, onMounted, reactive } from "vue";
 import Vue3Datatable from "@bhplugin/vue3-datatable";
 import "@bhplugin/vue3-datatable/dist/style.css";
@@ -57,127 +57,130 @@ interface PartnershipData {
 }
 
 // Sample data based on the provided JSON
-const partnershipData = reactive<PartnershipData>({
-  Are_you_collaborating_with_any_other_partners: "Yes",
-  Campaign_Focus: [
-    "Measles Rubella",
-    "HPV",
-    "Malaria",
-    "Polio",
-    "Routine Immunization",
-  ],
-  Campaign_Focus_Other: "Another Camp Focus",
-  Designation_of_respondent: "Dev",
-  Email_Address_of_Respondent: "kamalaminu94@gmail.com",
-  End_date_of_support: "2025-09-30 00:00:00.000Z",
-  Key_Performance_Indicators: "",
-  LGA_supported: [
-    { lga: "Bwari", state: "Fct" },
-    { lga: "Kuje", state: "Fct" },
-    { lga: "Calabar South", state: "Cross River" },
-    { lga: "Biase", state: "Cross River" },
-    { lga: "Ikom", state: "Cross River" },
-    { lga: "Maradun", state: "Zamfara" },
-    { lga: "Bungudu", state: "Zamfara" },
-    { lga: "Bukkuyum", state: "Zamfara" },
-  ],
-  Level_of_support: ["National", "State", "LGA"],
-  List_the_Partners: [
-    "CHAI",
-    "IVAC",
-    "Red Cross",
-    "TaskForce for Global Health",
-    "AFENET",
-    "e-Health Africa",
-    "C-WINS",
-    "GRID3",
-    "McKinsey",
-    "Sydani Group",
-    "other colab",
-  ],
-  Name_of_Organization_Agency: "SydaniTech",
-  Name_of_Respondent: "Kamal Aminu",
-  Phone_Number_of_Respondent: "08034932065",
-  Start_date_of_support: "2025-07-01 00:00:00.000Z",
-  States_supported: [
-    { state: "Fct" },
-    { state: "Kaduna" },
-    { state: "Lagos" },
-    { state: "Delta" },
-  ],
-  Status_of_support: "In Progress",
-  Summary_of_Support:
-    "Comprehensive healthcare support across multiple states focusing on immunization campaigns and health system strengthening.",
-  Thematic_areas_supported: [
-    {
-      area: "Planning and Coordination",
-      kpi: "planing kpi",
-      sub_areas: [
-        "Microplanning",
-        "Readiness dashboard",
-        "Technical Working Group",
-        "Other: Another plan",
-      ],
-      support_level: ["National", "States", "LGAs"],
-    },
-    {
-      area: "Service Delivery",
-      kpi: "service kpi",
-      sub_areas: [
-        "Training",
-        "Supportive supervision",
-        "Health workers' team deployment",
-        "Other: Anothe service",
-      ],
-      support_level: ["States", "LGAs", "National"],
-    },
-    {
-      area: "ACSM",
-      kpi: "acsm kpi",
-      sub_areas: [
-        "Program Advocacy",
-        "Risk and Crisis communication",
-        "Media Advocacy",
-        "Social Mobilization",
-        "Other: another acsm",
-      ],
-      support_level: ["National", "States"],
-    },
-    {
-      area: "MERLA (Monitoring, Evaluation, Research, Learning and Accountability)",
-      kpi: "merla kpi",
-      sub_areas: [
-        "Data Management",
-        "Knowledge management and learning",
-        "Research",
-      ],
-      support_level: ["National", "States", "LGAs"],
-    },
-  ],
-  Type_of_Organization_Agency: ["Implementing Partner"],
-  Type_of_Support: [
-    {
-      deployment_states: [
-        { state: "Fct" },
-        { state: "Sokoto" },
-        { state: "Akwa Ibom" },
-        { state: "Bayelsa" },
-      ],
-      number_of_personnel: 4,
-      personnel_deployed: true,
-      support_type: "Technical Support",
-    },
-    {
-      organizations_funded: ["Sydani", "BMGF", "AFunder"],
-      support_type: "Funding",
-    },
-    {
-      commodities_supplied: ["Com1", "Com2", "com3 s", "com4. an"],
-      support_type: "Provision of Commodities",
-    },
-  ],
-  Who_is_the_Funder_of_your_project: "TestFunder",
-});
+const partnershipData =
+  reactive <
+  PartnershipData >
+  {
+    Are_you_collaborating_with_any_other_partners: "Yes",
+    Campaign_Focus: [
+      "Measles Rubella",
+      "HPV",
+      "Malaria",
+      "Polio",
+      "Routine Immunization",
+    ],
+    Campaign_Focus_Other: "Another Camp Focus",
+    Designation_of_respondent: "Dev",
+    Email_Address_of_Respondent: "kamalaminu94@gmail.com",
+    End_date_of_support: "2025-09-30 00:00:00.000Z",
+    Key_Performance_Indicators: "",
+    LGA_supported: [
+      { lga: "Bwari", state: "Fct" },
+      { lga: "Kuje", state: "Fct" },
+      { lga: "Calabar South", state: "Cross River" },
+      { lga: "Biase", state: "Cross River" },
+      { lga: "Ikom", state: "Cross River" },
+      { lga: "Maradun", state: "Zamfara" },
+      { lga: "Bungudu", state: "Zamfara" },
+      { lga: "Bukkuyum", state: "Zamfara" },
+    ],
+    Level_of_support: ["National", "State", "LGA"],
+    List_the_Partners: [
+      "CHAI",
+      "IVAC",
+      "Red Cross",
+      "TaskForce for Global Health",
+      "AFENET",
+      "e-Health Africa",
+      "C-WINS",
+      "GRID3",
+      "McKinsey",
+      "Sydani Group",
+      "other colab",
+    ],
+    Name_of_Organization_Agency: "SydaniTech",
+    Name_of_Respondent: "Kamal Aminu",
+    Phone_Number_of_Respondent: "08034932065",
+    Start_date_of_support: "2025-07-01 00:00:00.000Z",
+    States_supported: [
+      { state: "Fct" },
+      { state: "Kaduna" },
+      { state: "Lagos" },
+      { state: "Delta" },
+    ],
+    Status_of_support: "In Progress",
+    Summary_of_Support:
+      "Comprehensive healthcare support across multiple states focusing on immunization campaigns and health system strengthening.",
+    Thematic_areas_supported: [
+      {
+        area: "Planning and Coordination",
+        kpi: "planing kpi",
+        sub_areas: [
+          "Microplanning",
+          "Readiness dashboard",
+          "Technical Working Group",
+          "Other: Another plan",
+        ],
+        support_level: ["National", "States", "LGAs"],
+      },
+      {
+        area: "Service Delivery",
+        kpi: "service kpi",
+        sub_areas: [
+          "Training",
+          "Supportive supervision",
+          "Health workers' team deployment",
+          "Other: Anothe service",
+        ],
+        support_level: ["States", "LGAs", "National"],
+      },
+      {
+        area: "ACSM",
+        kpi: "acsm kpi",
+        sub_areas: [
+          "Program Advocacy",
+          "Risk and Crisis communication",
+          "Media Advocacy",
+          "Social Mobilization",
+          "Other: another acsm",
+        ],
+        support_level: ["National", "States"],
+      },
+      {
+        area: "MERLA (Monitoring, Evaluation, Research, Learning and Accountability)",
+        kpi: "merla kpi",
+        sub_areas: [
+          "Data Management",
+          "Knowledge management and learning",
+          "Research",
+        ],
+        support_level: ["National", "States", "LGAs"],
+      },
+    ],
+    Type_of_Organization_Agency: ["Implementing Partner"],
+    Type_of_Support: [
+      {
+        deployment_states: [
+          { state: "Fct" },
+          { state: "Sokoto" },
+          { state: "Akwa Ibom" },
+          { state: "Bayelsa" },
+        ],
+        number_of_personnel: 4,
+        personnel_deployed: true,
+        support_type: "Technical Support",
+      },
+      {
+        organizations_funded: ["Sydani", "BMGF", "AFunder"],
+        support_type: "Funding",
+      },
+      {
+        commodities_supplied: ["Com1", "Com2", "com3 s", "com4. an"],
+        support_type: "Provision of Commodities",
+      },
+    ],
+    Who_is_the_Funder_of_your_project: "TestFunder",
+  };
 
 // Computed properties for different data tables
 const lgaTableData = computed(() =>
