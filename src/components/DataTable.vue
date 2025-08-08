@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import Vue3Datatable from "@bhplugin/vue3-datatable";
+import DataView from "./DataView.vue";
 import "@bhplugin/vue3-datatable/dist/style.css";
 
 import PocketBase from "pocketbase";
@@ -160,11 +161,36 @@ const formatDate = (inputDate) => {
   return formattedDate;
 };
 
+const selectedRow = ref(null);
+const handleRowClick = (rowData) => {
+  // console.log("Row clicked:", rowData);
+  selectedRow.value = rowData;
+  table_data_modal.showModal();
+};
+
+const closePopup = () => {
+  table_data_modal.hideModal();
+};
+
 onMounted(() => {
   getPaginatedData();
 });
 </script>
 <template>
+  <div>
+    <!-- You can open the modal using ID.showModal() method -->
+    <!-- <button class="btn" onclick="table_data_modal.showModal()"
+      >open modal</button
+    > -->
+    <dialog id="table_data_modal" class="modal">
+      <div class="modal-box min-w-[40vw] p-0">
+        <DataView v-if="selectedRow" :selectedMarker="selectedRow"></DataView>
+      </div>
+      <form method="dialog" class="modal-backdrop">
+        <button>close</button>
+      </form>
+    </dialog>
+  </div>
   <div
     class="max-h-[89vh] min-h-[89vh] mt-4 min-w-[92vw] max-w-[92vw] overflow-y-auto"
   >
@@ -178,8 +204,10 @@ onMounted(() => {
       :search="searchTxt"
       :stickyHeader="true"
       :pageSize="pageSize"
+      :selectRowOnClick="true"
       skin="bh-table-hover"
       @change="getPaginatedData"
+      @row-click="handleRowClick"
     >
     </vue3-datatable>
   </div>
